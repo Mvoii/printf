@@ -1,6 +1,28 @@
 #include "main.h"
 
 
+/*prints char*/
+int puts_char(int c)
+{
+	return (write(1, &c, 1));
+}
+
+/*prints strings*/
+int puts_str(char *str)
+{
+	int count;
+
+	count = 0;
+
+	while (*str != '\0')
+	{
+		puts_char((int)*str);
+		count++;
+		str++;
+	}
+	return count;
+}
+
 /**
  * print_format - writes data formatted against some parameters
  * @ap: the arguemnts list
@@ -50,24 +72,4 @@ int _printf(const char *format, ...)
 	return (count);
 }
 
-/*prints char*/
-int puts_char(int c)
-{
-	return (write(1, &c, 1));
-}
 
-/*prints strings*/
-int puts_str(char *str)
-{
-	int count;
-
-	count = 0;
-
-	while (*str != '\0')
-	{
-		puts_char((int)*str);
-		count++;
-		str++;
-	}
-	return count;
-}
