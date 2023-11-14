@@ -59,6 +59,9 @@ int _printf(const char *format, ...)
 	va_start(ap, format);
 	count = 0;
 
+	if (!format || (format[0] == '%' && format[1] ==  '\0'))
+		return (-1);
+
 	while (*format != '\0')
 	{
 		if ((*format) == '%')
