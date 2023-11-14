@@ -44,7 +44,7 @@ int puts_str(char *str)
 
 	while (*str != '\0')
 	{
-		print_char((int)*str);
+		puts_char((int)*str);
 		count++;
 		str++;
 	}
@@ -67,5 +67,6 @@ int print_format(char specifier, va_list ap)
 
 	else if (specifier == 's')
 		count =+ puts_str(va_arg(ap, char *));
+	return (count);
 
 }
