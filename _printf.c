@@ -32,6 +32,16 @@ int puts_str(char *str)
 	return (count);
 }
 
+int puts_integer(int value)
+{
+	char value_str[20];
+	int num_chars_printed;
+
+	num_chars_printed = snprintf(value_str, sizeof(value_str), "%d", value);
+
+	/*num_chars_printed = puts_str(value_str);*/
+	return (num_chars_printed);
+}
 /**
  * print_format - writes data formatted against some parameters
  *
@@ -54,9 +64,7 @@ int print_format(char specifier, va_list list_args)
 		count += write(1, &specifier, 1);
 	else if (specifier == 'i' || specifier == 'd')
 	{
-		int num = va_arg(list_args, int);
-		char *str = int_to_string(num);
-		count += puts_str(str);
+		count += puts_integer(va_arg(list_args, int));
 	}
 	/*
 	else
