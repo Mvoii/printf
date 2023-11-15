@@ -29,7 +29,7 @@ int puts_str(char *str)
  * @specifier: identifies the data type
  *
  */
-int print_format(char specifier, va_list ap)
+int print_format(char specifier, va_list list_args)
 {
 	int count = 0; 
 
