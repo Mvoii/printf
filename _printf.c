@@ -35,10 +35,10 @@ int print_format(char specifier, va_list list_args)
 
 	/*handles char*/
 	if (specifier == 'c')
-		count =+ puts_char(va_arg(ap, int));
+		count =+ puts_char(va_arg(list_args, int));
 
 	else if (specifier == 's')
-		count =+ puts_str(va_arg(ap, char *));
+		count =+ puts_str(va_arg(list_args, char *));
 	/*
 	else
 		count += write(1, %specifier, 1);
