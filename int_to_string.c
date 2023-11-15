@@ -23,19 +23,22 @@ char* int_to_string(int num)
     }
 
     /*int sign = (num < 0) ? -1 : 1;*/
+    int sign; 
+    
     if (num < 0)
     {
-        int sign = -1;
+        sign = -1;
     }
     else
     {
-        int sign = 1;
+        sign = 1;
     }
 
     num = abs(num); /* Make num positive*/
 
-    // Calculate the number of digits
-    int digits, temp;
+    /* Calculate the number of digits*/
+    int digits;
+    int temp;
 
     digits = 1;
     temp = num;
@@ -46,8 +49,8 @@ char* int_to_string(int num)
         temp /= 10;
     }
 
-    char* str;
-    
+    char *str;
+
     str = (char*)malloc((digits + 1 + (sign == -1)) * sizeof(char));
 
     if (!str)
