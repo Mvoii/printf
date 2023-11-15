@@ -9,8 +9,9 @@
 */
 char* int_to_string(int num)
 {
-	char *str
+	char *str;
 	int i = 0;
+	int j = 0;
 
 	/*allocate mem for the string and null terminator*/
 	str = (char*)malloc(12 * sizeof(char)); /*assume a max of 12 digits*/
@@ -38,12 +39,13 @@ char* int_to_string(int num)
 	}
 
 	/*reverse string (since we built it from right to left)*/
-	for (int j = 0; j < i / 2; j++)
+	while (j < i / 2)
 	{
 		char temp = str[j];
 
 		str[j] = str[i - j - 1];
 		str[j - j - 1] = temp;
+		j++;
 	}
 
 	/*add null terminator*/
