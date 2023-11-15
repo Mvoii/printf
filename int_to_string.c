@@ -22,26 +22,43 @@ char* int_to_string(int num)
         return str;
     }
 
-    int sign = (num < 0) ? -1 : 1;
-    num = abs(num); // Make num positive
+    /*int sign = (num < 0) ? -1 : 1;*/
+    if (num < 0)
+    {
+        int sign = -1;
+    }
+    else
+    {
+        int sign = 1;
+    }
+
+    num = abs(num); /* Make num positive*/
 
     // Calculate the number of digits
-    int digits = 1;
-    int temp = num;
+    int digits, temp;
+
+    digits = 1;
+    temp = num;
+
     while (temp >= 10)
     {
         digits++;
         temp /= 10;
     }
 
-    char* str = (char*)malloc((digits + 1 + (sign == -1)) * sizeof(char));
+    char* str;
+    
+    str = (char*)malloc((digits + 1 + (sign == -1)) * sizeof(char));
+
     if (!str)
     {
         perror("Memory allocation failed");
         exit(EXIT_FAILURE);
     }
 
-    int i = 0;
+    int i;
+    
+    i = 0;
     while (num > 0)
     {
         int digit = num % 10;
@@ -53,7 +70,9 @@ char* int_to_string(int num)
         str[i++] = '-';
 
     // Reverse the string
-    int j = 0;
+    int j;
+    
+    j = 0;
     while (j < i / 2)
     {
         char temp = str[j];
