@@ -1,6 +1,5 @@
 #include "main.h"
 
-
 /*prints char*/
 int puts_char(int c)
 {
@@ -29,7 +28,7 @@ int puts_str(char *str)
  */
 int print_format(char specifier, va_list list_args)
 {
-	int count = 0; 
+	int count = 0;
 
 	/*handles char*/
 	if (specifier == 'c')
@@ -42,9 +41,7 @@ int print_format(char specifier, va_list list_args)
 	else
 		count += write(1, %specifier, 1);
 	*/
-
 	return (count);
-
 }
 
 /**
