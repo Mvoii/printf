@@ -44,6 +44,8 @@ int print_format(char specifier, va_list list_args)
 
 	else if (specifier == 's')
 		count =+ puts_str(va_arg(list_args, char *));
+	else if (specifier == '%')
+		count += write(1, specifier, 1);
 	/*
 	else
 		count += write(1, %specifier, 1);
@@ -75,7 +77,8 @@ int _printf(const char *format, ...)
 	while (*format != '\0')
 	{
 		if ((*format) == '%')
-			count += print_format(*format++, list_args);
+			format++;
+			count += print_format(*format, list_args);
 		else
 			/*return amount of bytes*/
 			count += write(1, format, 1);
