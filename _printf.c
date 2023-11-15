@@ -1,13 +1,25 @@
 #include "main.h"
 
-/*prints char*/
+/**
+ * puts_char - writes data
+ *
+ * @c: the char to be printed
+ *
+ * return : count of bytes
+*/
 int puts_char(int c)
 {
 	write(1, &c, 1);
 	return (1);
 }
 
-/*prints strings*/
+/**
+ * puts_str - prints strings
+ * 
+ * @str: a string of chars
+ *
+ * returns - cpunt of printed bytes
+*/
 int puts_str(char *str)
 {
 	int count = 0;
@@ -22,9 +34,12 @@ int puts_str(char *str)
 
 /**
  * print_format - writes data formatted against some parameters
- * @ap: the arguemnts list
+ *
+ * @list_args: the arguemnts list
+ *
  * @specifier: identifies the data type
  *
+ * return - count of bytes printed
  */
 int print_format(char specifier, va_list list_args)
 {
