@@ -4,6 +4,8 @@
 /*prints char*/
 int puts_char(int c)
 {
+	int count = 0;
+
 	write(1, &c, 1);
 	count++;
 
