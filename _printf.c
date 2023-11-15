@@ -4,7 +4,10 @@
 /*prints char*/
 int puts_char(int c)
 {
-	return (write(1, &c, 1));
+	write(1, &c, 1);
+	count++;
+
+	return (count);
 }
 
 /*prints strings*/
