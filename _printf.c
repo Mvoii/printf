@@ -32,6 +32,12 @@ int puts_str(char *str)
 	return (count);
 }
 
+/**
+ * puts_integer - prints out integers
+ * @value: integer value to be printed
+ * @value_str: initializes teh variable space
+ * Returns: number of characters printed
+*/
 int puts_integer(int value)
 {
 	char value_str[20];
@@ -39,9 +45,10 @@ int puts_integer(int value)
 
 	num_chars_printed = snprintf(value_str, sizeof(value_str), "%d", value);
 
-	/*num_chars_printed = puts_str(value_str);*/
+	num_chars_printed = puts_str(value_str);
 	return (num_chars_printed);
 }
+
 /**
  * print_format - writes data formatted against some parameters
  *
