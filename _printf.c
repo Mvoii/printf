@@ -20,7 +20,7 @@ int puts_str(char *str)
 		count++;
 		str++;
 	}
-	return count;
+	return (count);
 }
 
 /**
