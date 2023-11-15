@@ -54,7 +54,7 @@ int print_format(char specifier, va_list list_args)
 		count += write(1, &specifier, 1);
 	else if (specifier == 'i' || specifier == 'd')
 	{
-		int num = va_args(list_args, int);
+		int num = va_arg(list_args, int);
 		char *str = int_to_string(num);
 		count += puts_str(str);
 	}
