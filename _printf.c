@@ -4,25 +4,18 @@
 /*prints char*/
 int puts_char(int c)
 {
-	int count = 0;
-
 	write(1, &c, 1);
-	count++;
-
-	return (count);
+	return (1);
 }
 
 /*prints strings*/
 int puts_str(char *str)
 {
-	int count;
-
-	count = 0;
+	int count = 0;
 
 	while (*str != '\0')
 	{
-		puts_char((int)*str);
-		count++;
+		count += puts_char((int)*str);
 		str++;
 	}
 	return (count);
@@ -41,11 +34,10 @@ int print_format(char specifier, va_list list_args)
 	/*handles char*/
 	if (specifier == 'c')
 		count += puts_char(va_arg(list_args, int));
-
 	else if (specifier == 's')
 		count += puts_str(va_arg(list_args, char *));
 	else if (specifier == '%')
-		count += write(1, specifier, 1);
+		count += write(1, &specifier, 1);
 	/*
 	else
 		count += write(1, %specifier, 1);
@@ -66,10 +58,9 @@ int print_format(char specifier, va_list list_args)
 int _printf(const char *format, ...)
 {
 	va_list list_args;
-	int count;
+	int count = 0;
 
 	va_start(list_args, format);
-	count = 0;
 
 	if (!format || (format[0] == '%' && format[1] ==  '\0'))
 		return (-1);
@@ -77,11 +68,15 @@ int _printf(const char *format, ...)
 	while (*format != '\0')
 	{
 		if ((*format) == '%')
+		{
 			format++;
 			count += print_format(*format, list_args);
+		}
 		else
+		{
 			/*return amount of bytes*/
 			count += write(1, format, 1);
+		}
 		format++;
 	}
 	va_end(list_args);
