@@ -5,7 +5,7 @@
  *
  * @c: the char to be printed
  *
- * return : count of bytes
+ * Return: count of bytes
 */
 int puts_char(int c)
 {
@@ -18,7 +18,7 @@ int puts_char(int c)
  * 
  * @str: a string of chars
  *
- * returns - cpunt of printed bytes
+ * Returns: count of printed bytes
 */
 int puts_str(char *str)
 {
@@ -39,7 +39,7 @@ int puts_str(char *str)
  *
  * @specifier: identifies the data type
  *
- * return - count of bytes printed
+ * Returns: count of bytes printed
  */
 int print_format(char specifier, va_list list_args)
 {
