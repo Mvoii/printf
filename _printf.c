@@ -58,10 +58,10 @@ int print_format(char specifier, va_list ap)
 
 int _printf(const char *format, ...)
 {
-	va_list ap;
+	va_list list_args;
 	int count;
 
-	va_start(ap, format);
+	va_start(list_args, format);
 	count = 0;
 
 	if (!format || (format[0] == '%' && format[1] ==  '\0'))
@@ -70,14 +70,12 @@ int _printf(const char *format, ...)
 	while (*format != '\0')
 	{
 		if ((*format) == '%')
-			count += print_format(*(++format), ap);
+			count += print_format(*(++format), list_args);
 		else
 			/*return amount of bytes*/
 			count =+ write(1, format, 1);
 		format++;
 	}
-	va_end(ap);
+	va_end(list_args);
 	return (count);
 }
-
-
