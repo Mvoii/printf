@@ -8,5 +8,6 @@
 #include <unistd.h>
 
 int _printf(const char *format, ...);
+int puts_char(int c);
 
 #endif /*MAIN_H*/
