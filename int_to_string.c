@@ -1,24 +1,25 @@
 #include "main.h"
 
 /**
- * int_to_string - converts an int to str
+ * int_to_string - converts an int to string
  *
  * @num: the integer to be converted
  *
- * Return - string
+ * Return: a pointer to resulting string
 */
 char* int_to_string(int num)
 {
-	/*allocate mem for the string and null terminator*/
-	char *str = (char*)malloc(12 * sizeof(char)); /*assume a max of 12 digits*/
+	char *str
+	int i = 0;
 
-	/*handle mem allocation failure*/
+	/*allocate mem for the string and null terminator*/
+	str = (char*)malloc(12 * sizeof(char)); /*assume a max of 12 digits*/
+
 	if (!str)
 	{
+		perror("Memory alocataion failed");
 		exit(EXIT_FAILURE);
 	}
-
-	int i = 0; /*for placing chars into the string*/
 
 	/*handle negative numbers*/
 	if (num < 0)
@@ -36,13 +37,12 @@ char* int_to_string(int num)
 		num /= 10;
 	}
 
-	/*reverse string (since we built it from right to left*/
+	/*reverse string (since we built it from right to left)*/
 	for (int j = 0; j < i / 2; j++)
 	{
 		char temp = str[j];
 
 		str[j] = str[i - j - 1];
-
 		str[j - j - 1] = temp;
 	}
 
