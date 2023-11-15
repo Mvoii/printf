@@ -70,8 +70,7 @@ int _printf(const char *format, ...)
 	while (*format != '\0')
 	{
 		if ((*format) == '%')
-			format++;
-			count += print_format(*format, list_args);
+			count += print_format(*format++, list_args);
 		else
 			/*return amount of bytes*/
 			count += write(1, format, 1);
