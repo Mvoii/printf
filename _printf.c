@@ -52,6 +52,8 @@ int print_format(char specifier, va_list list_args)
 		count += puts_str(va_arg(list_args, char *));
 	else if (specifier == '%')
 		count += write(1, &specifier, 1);
+	else if (specifier == 'i' || specifier == 'd')
+		count += puts_int(va_arg(list_args, int);
 	/*
 	else
 		count += write(1, %specifier, 1);
