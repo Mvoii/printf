@@ -55,8 +55,10 @@ int puts_integer(int value)
  */
 int puts_binary(unsigned int value)
 {
+	int count = 0;
+
 	/*create a mask to extract each bit*/
-	unsigned int mask = 1 << (sizeof(unsigend int) * 8 - 1);
+	unsigned int mask = 1 << (sizeof(unsigned int) * 8 - 1);
 
 	/*iterate through each bit and print it*/
 	while (mask > 0)
