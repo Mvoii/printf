@@ -50,6 +50,27 @@ int puts_integer(int value)
 }
 
 /**
+ * Prints an unsigned integer in binary format.
+ * @param value The unsigned integer value to be printed.
+ */
+int puts_binary(unsigned int value)
+{
+	/*create a mask to extract each bit*/
+	unsigned int mask = 1 << (sizeof(unsigend int) * 8 - 1);
+
+	/*iterate through each bit and print it*/
+	while (mask > 0)
+	{
+		if (value & mask)
+			putchar('1');
+		else
+			putchar('0');
+		mask >>= 1; /*shifts mask to the right*/
+	}
+	return (count);
+}
+
+/**
  * print_format - writes data formatted against some parameters
  *
  * @list_args: the arguemnts list
@@ -70,9 +91,9 @@ int print_format(char specifier, va_list list_args)
 	else if (specifier == '%')
 		count += write(1, &specifier, 1);
 	else if (specifier == 'i' || specifier == 'd')
-	{
 		count += puts_integer(va_arg(list_args, int));
-	}
+	else if (specifier == 'b')
+		count += puts_binary(va_arg(list_args, unsigned int));
 	/*
 	else
 		count += write(1, %specifier, 1);
