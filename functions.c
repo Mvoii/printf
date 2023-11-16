@@ -60,14 +60,16 @@ int puts_binary(unsigned int value)
 	/*create a mask to extract each bit*/
 	unsigned int mask = 1 << (sizeof(unsigned int) * 8 - 1);
 
-	/*iterate through each bit and print it*/
+	/*iterate through each bit and print it
 	while (mask > 0)
 	{
 		if (value & mask)
 			count += puts_char('1');
 		else
 			count += puts_char('0');
-		mask >>= 1; /*shifts mask to the right*/
-	}
+		mask >>= 1; shifts mask to the right
+	}*/
+	count += sprintf(str, "%u", mask);
+
 	return (count);
 }
