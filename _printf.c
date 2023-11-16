@@ -23,7 +23,7 @@ int print_format(char specifier, va_list list_args)
 	else if (specifier == 'i' || specifier == 'd')
 		count += puts_integer(va_arg(list_args, int));
 	else if (specifier == 'b')
-		count += puts_binary(va_arg(list_args, unsigned int));
+		count += puts_digits(long(va_arg(list_args, unsigned int)), 2);
 	/*
 	else
 		count += write(1, %specifier, 1);
