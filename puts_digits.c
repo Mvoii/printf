@@ -1,63 +1,63 @@
 #include "main.h"
 
 /**
- * Prints an unsigned integer in binary format.
- * @param value The unsigned integer value to be printed.
- * @base: The base to be used for printing
+ * puts_digits - Prints an unsigned integer in binary format.
+ * @value: The unsigned integer value to be printed.
+ * @base: The base to be used for printing.
  *
- * Return: count of chars
+ * Return: The number of characters printed.
  */
-
-int puts_digits(long n, int base)
+int puts_digits(long value, int base)
 {
-    int count;
-    char *symbols;
+    int count = 0;
+    char *symbols = "0123456789abcdef";
 
-    symbols = "0123456789abcdef";
-
-    if (n < 0)
+    if (value < 0)
     {
         write(1, "-", 1);
-        return puts_digits(-n, base) + 1;
+        count++;
+        value = -value;
     }
 
-    else if (n < base)
-        return puts_char(symbols[n]);
-
-    else
+    if (value < base)
     {
-        count = puts_digits(n / base, base);
-        return count + puts_digits(n % base, base);
+        count += puts_char(symbols[value]);
+        return (count);
     }
+
+    count += puts_digits(value / base, base);
+    count += puts_char(symbols[value % base]);
+
+    return (count);
 }
 
 /**
- * Prints an unsigned integer in caps hex format.
- * @param value The unsigned integer value to be printed.
- * @base: the base to e used for printing
+ * puts_digit_caps - Prints an unsigned integer in caps hex format.
+ * @value: The unsigned integer value to be printed.
+ * @base: The base to be used for printing.
  *
- * Return: count of chars
+ * Return: The number of characters printed.
  */
-
-int puts_digit_caps(long n, int base)
+int puts_digit_caps(long value, int base)
 {
-    int count;
-    char *symbols;
+    int count = 0;
+    char *symbols = "0123456789ABCDEF";
 
-    symbols = "0123456789ABCDEF";
-
-    if (n < 0)
+    if (value < 0)
     {
         write(1, "-", 1);
-        return puts_digits(-n, base) + 1;
+        count++;
+        value = -value;
     }
 
-    else if (n < base)
-        return puts_char(symbols[n]);
-
-    else
+    if (value < base)
     {
-        count = puts_digits(n / base, base);
-        return count + puts_digits(n % base, base);
+        count += puts_char(symbols[value]);
+        return (count);
     }
+
+    count += puts_digit_caps(value / base, base);
+    count += puts_char(symbols[value % base]);
+
+    return (count);
 }
