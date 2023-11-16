@@ -56,6 +56,7 @@ int puts_integer(int value)
 int puts_binary(unsigned int value)
 {
 	int count = 0;
+	char str[32];
 
 	/*create a mask to extract each bit*/
 	unsigned int mask = 1 << (sizeof(unsigned int) * 8 - 1);
