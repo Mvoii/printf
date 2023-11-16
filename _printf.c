@@ -64,9 +64,9 @@ int puts_binary(unsigned int value)
 	while (mask > 0)
 	{
 		if (value & mask)
-			putchar('1');
+			count += puts_char('1');
 		else
-			putchar('0');
+			count += puts_chars('0');
 		mask >>= 1; /*shifts mask to the right*/
 	}
 	return (count);
