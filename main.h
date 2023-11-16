@@ -14,5 +14,6 @@ int print_format(char specifier, va_list list_args);
 /*char* int_to_string(int num);*/
 int puts_integer(int value);
 int puts_digits(long n, int base);
+int puts_digit_caps(long n, int base);
 
 #endif /*MAIN_H*/
