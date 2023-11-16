@@ -61,7 +61,7 @@ int puts_binary(unsigned int value)
 	/*create a mask to extract each bit*/
 	unsigned int mask = 1 << (sizeof(unsigned int) * 8 - 1);
 
-	unsigned int i = o;
+	unsigned int i = 0;
 
 	/*iterate through each bit and print it*/
 	while (mask > i)
