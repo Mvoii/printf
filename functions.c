@@ -55,7 +55,7 @@ int puts_integer(int value)
  *
  * Return: number of characters printed
  */
-int custom_printf(unsigned int n)
+int puts_unsigned_int(unsigned int n)
 {
         /* convert unsigned int to string */
         char buffer[20];
