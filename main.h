@@ -1,6 +1,7 @@
 #ifndef MAIN_H
 #define MAIN_H
 
+#define BUFF_SIZE 1024
 #include <stdio.h>
 #include <string.h>
 #include <stdarg.h>
