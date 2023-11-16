@@ -29,7 +29,7 @@ int print_format(char specifier, va_list list_args)
 	else if (specifier == 'x')
 		count += puts_digits((long)(va_arg(list_args, unsigned int)), 16);
 	else if (specifier == 'X')
-		count += puts_digits((long)(va_arg(list_args, unsigned int)), 16);
+		count += puts_digit_caps((long)(va_arg(list_args, unsigned int)), 16);
 	/*
 	else
 		count += write(1, %specifier, 1);
