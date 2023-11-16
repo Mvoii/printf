@@ -56,21 +56,24 @@ int puts_integer(int value)
 int puts_binary(unsigned int value)
 {
 	int count = 0;
-	char str[32];
+	char str[33];
 
 	/*create a mask to extract each bit*/
 	unsigned int mask = 1 << (sizeof(unsigned int) * 8 - 1);
 
-	/*iterate through each bit and print it
-	while (mask > 0)
+	int i = o;
+
+	/*iterate through each bit and print it*/
+	while (mask > i)
 	{
 		if (value & mask)
 			count += puts_char('1');
 		else
 			count += puts_char('0');
-		mask >>= 1; shifts mask to the right
-	}*/
-	count += sprintf(str, "%u", mask);
+		mask >>= 1; /*shifts mask to the right*/
+		i++;
+	}
+	str[count] = '\0';
 
 	return (count);
 }
