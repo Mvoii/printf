@@ -26,7 +26,9 @@ int print_format(char specifier, va_list list_args)
 		count += puts_digits((long)(va_arg(list_args, unsigned int)), 2);
 	else if (specifier == 'o')
 		count += puts_digits((long)(va_arg(list_args, unsigned int)), 8);
-	else if (specifier == 'x' || specifier == 'X')
+	else if (specifier == 'x')
+		count += puts_digits((long)(va_arg(list_args, unsigned int)), 16);
+	else if (specifier == 'X')
 		count += puts_digits((long)(va_arg(list_args, unsigned int)), 16);
 	/*
 	else
